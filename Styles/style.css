@@ -1,0 +1,300 @@
+html{
+    width: 100%;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img {
+    width: 100%;
+    height: 300px;
+    object-fit: scale-down;
+    object-position: bottom;
+  }
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    background-color:#6a1b9a;
+    padding: 20px;
+    text-align: center;
+    z-index: 1000; /* para que se superponga sobre otros elementos */
+  }
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+header nav a{
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+}
+header nav a::before{
+    content: "▶ "; /* Añade una flecha antes del enlace */
+    color: red;    /* Color de la flecha */
+    position: absolute;
+    left: -20px;   /* Ajusta la posición de la flecha */
+}
+header nav a:hover{
+    background:#8e44ad;
+    border-radius: 10px;
+}
+header img{
+    width: 100px;
+    height: auto;
+}
+
+.Boton_sesion {
+    background-color: white;
+    color: #6a1b9a;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.Boton_sesion a{
+    text-decoration: none;
+    color: #6a1b9a;
+}
+.Boton_sesion:hover{
+    background-color: #e2cdef;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    margin: 0;
+}
+
+.izquierda {
+    flex: 1;
+    background-image: url(/Proyecto/images/image.png);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    
+}
+main .Derecha {
+    flex: 1;
+    padding-left: auto;
+    margin: 0 50px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+}
+
+main .Derecha h2 {
+    color: #6a1b9a;
+    font-size: 28px;
+    text-align: center;
+}
+
+main .Derecha p {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+div .Boton_saber_mas {
+    position: relative;
+    margin: 10px;
+    top: 5%;
+    left: 50%;
+    width:170px;
+    transform: translate(-50%, -50%);
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.Boton_saber_mas:hover{
+    background-color: #8e44ad;
+
+}
+.section_gris{
+    background-color: #e2cdef;
+    padding: 40px;
+}
+
+.section_blanca{
+    padding: 40px 80px 0px 40px;
+    height: 100%;
+    
+}
+#Sobre_nosotros div{
+    justify-content: space-between;
+    margin-bottom: 120px;
+}
+#Sobre_nosotros h2{
+    color: #6a1b9a;
+    margin-bottom: 90px;
+
+}
+.caja_de_texto{
+    padding-right: 0px;
+    width: 80%;
+
+}
+ul{
+    list-style: none;
+}
+.caja_de_texto p{
+    font-size: 17px;
+    width: 80%;
+}
+
+.caja_de_texto_2{
+    width: 500px;
+}
+
+.contactos{
+    display: flex;
+    justify-content: space-between;
+}
+#contactos {
+    justify-content: space-between;
+}
+
+#contactos h2{
+    color: #6a1b9a;
+    text-align: center;
+}
+.contacto img {
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%; 
+    margin-bottom: 10px;
+}
+
+
+
+.contacto {
+    display: inline-block;
+    width: 30%;
+    margin: 10px;
+    text-align: center;
+    background-color: #e2cdef;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contacto img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.contacto p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.contacto p strong {
+    font-weight: bold;
+    color: #6a1b9a;
+}
+
+.contacto:hover {
+    background-color: #d7c9e7;
+    transition: 0.3s ease;
+}
+
+@media(max-width:800px){
+    header{
+        position: fixed; /* Cambiamos a relative para que no se superponga sobre otros elementos */
+        padding: 10px; /* Reducimos el padding para que se ajuste a la pantalla del móvil */
+        text-align: left; /* Cambiamos el texto a la izquierda para que se ajuste a la pantalla del móvil */
+    }
+    header.container{
+        width: 100%;
+        display: none; /* Ajustamos el ancho del contenedor para que se ajuste a la pantalla del móvil */
+    }
+    .container{
+        display: block;
+    }
+
+    main .container{
+        flex-direction: column;
+    }
+    main .izquierda{
+        margin-top: 78px;
+        height:auto;
+        width: auto;
+    }
+    main button{
+        margin: 10px 0;
+    }
+   .Boton_sesion{
+        margin:
+         10px 0; /* Ajustamos el margen para que se ajuste a la pantalla del móvil */
+    }
+    #contactos .contactos{
+        justify-content: center;
+    }
+    #Sobre_nosotros {
+        text-align: center;
+    }
+    #Sobre_nosotros div {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    #Sobre_nosotros h2 {
+        margin-bottom: 20px;
+    }
+    .caja_de_texto, .caja_de_texto_2 {
+        width: auto;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .caja_de_texto p, .caja_de_texto_2 p {
+        width: auto;
+        text-align: center;
+    }
+    .images img{
+        margin: 0 auto;
+    }
+    .contactos {
+        flex-direction: column;
+        align-items: center;
+      }
+     .contacto {
+        display: grid;
+        width:auto;
+        margin: 20px auto; /* Add margin to center the element */
+      }
+}
+@media (max-width:579px){
+    header nav {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+      }
+      
+      header nav a {
+        grid-column: span 1;
+        text-align: center;
+        padding: 10px;
+        margin: 0;
+      }
+      .Derecha{
+        padding-top: 100px;
+      }
+      
+}

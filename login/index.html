@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="styles.css?v=2.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!--Tipo grafia-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>StuOrganizer</title>
+    <link rel="icon" href="/images/icono.png" type="image/png">
+</head>
+<body>
+    <div class="secion_form">
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form action="index.php" method="post">
+                    <h1>Crear Cuenta</h1>
+                    <input type="text" name="username" placeholder="Nombre" required />
+                    <input type="email" name="email" placeholder="Email" required />
+                    <input type="password" name="password" placeholder="Contraseña" required />
+                    <input type="password" name="confirm_password" placeholder="Confirmar Contraseña" required />
+                    <button type="submit" name="register">Registrarse</button>
+                    <?php 
+                    if(!empty($_SESSION["register_err"])){
+                        echo '<div class="error-message">' . $_SESSION["register_err"] . '</div>';
+                        unset($_SESSION["register_err"]);
+                    }
+                    if(!empty($_SESSION["register_success"])){
+                        echo '<div class="success-message">' . $_SESSION["register_success"] . '</div>';
+                        unset($_SESSION["register_success"]);
+                    }
+                    ?>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="index.php" method="post">
+                    <h1>Iniciar Sesión</h1>
+                    <input type="email" name="email" placeholder="Email" required />
+                    <input type="password" name="password" placeholder="Contraseña" required />
+                    <a href="/Proyecto/Login/Recuperar_contraseña/Recuperar_contra.php">¿Olvidaste tu contraseña?</a>
+                    <a href="/Proyecto">volver a home</a>
+                    <button type="submit" name="login">Iniciar Sesión</button>
+                    <?php 
+                    if(!empty($_SESSION["login_err"])){
+                        echo '<div class="error-message">' . $_SESSION["login_err"] . '</div>';
+                        unset($_SESSION["login_err"]);
+                    }        
+                    ?>
+                </form>
+            </div>
+            <div class="toggle-container">
+                <div class="toggle">
+                    <div class="toggle-panel toggle-left">
+                        <h1>¡Bienvenido de vuelta!</h1>
+                        <p>Inicia sesión con tus datos personales para usar todas las funciones del sitio</p>
+                        <button class="hidden" id="login">Iniciar Sesión</button>
+                    </div>
+                    <div class="toggle-panel toggle-right">
+                        <h1>¡Hola, amigo!</h1>
+                        <p>Regístrate con tus datos personales para usar todas las funciones del sitio</p>
+                        <button class="hidden" id="register">Registrarse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

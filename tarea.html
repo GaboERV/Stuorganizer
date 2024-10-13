@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StuOrganizer - Tareas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            background-image: url(/Proyecto/login/IMG/Paisaje_Hermoso.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .form-container, .task-list-container {
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary { background-color: #3498db; color: white; }
+        .btn-danger { background-color: #e74c3c; color: white; }
+        .btn-success { background-color: #2ecc71; color: white; }
+        .btn:hover { opacity: 0.8; }
+
+        .task-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .task-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            padding: 15px;
+        }
+
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .task-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .task-priority {
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .priority-Alta { background-color: #e74c3c; color: white; }
+        .priority-Media { background-color: #f39c12; color: white; }
+        .priority-Baja { background-color: #3498db; color: white; }
+
+        .task-details {
+            margin-bottom: 10px;
+        }
+
+        .task-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .sorting {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .sorting a {
+            text-decoration: none;
+            color: #3498db;
+            margin-right: 10px;
+        }
+
+        .sorting a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="form-container">
+            <h1>StuOrganizer - Tareas</h1>
+            <h2>Crear Tarea</h2>
+            <form id="taskForm" action="tareas.php" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Título:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripción:</label>
+                    <textarea id="description" name="description" required maxlength="50"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="due_date">Fecha de vencimiento:</label>
+                    <input type="date" id="due_date" name="due_date" required>
+                </div>
+                <div class="form-group">
+                    <label for="priority">Prioridad:</label>
+                    <select id="priority" name="priority" required>
+                        <option value="Alta">Alta</option>
+                        <option value="Media">Media</option>
+                        <option value="Baja">Baja</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="file">Archivo (opcional):</label>
+                    <input type="file" id="file" name="file">
+                </div>
+                <button type="submit" class="btn btn-primary">Crear Tarea</button>
+            </form>
+        </div>
+        
+        <div class="task-list-container">
+            <h2>Lista de Tareas</h2>
+            <div class="sorting">
+                <a href="?order=title&direction=asc">Título</a> |
+                <a href="?order=due_date&direction=asc">Fecha de Vencimiento</a> |
+                <a href="?order=priority&direction=asc">Prioridad</a>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="task-header">
+                        <span class="task-title">Ejemplo de Tarea</span>
+                        <span class="task-priority priority-Alta">Alta</span>
+                    </div>
+                    <div class="task-details">
+                        <p>Descripción: Esta es una tarea de ejemplo.</p>
+                        <p>Fecha: 2024-07-15</p>
+                    </div>
+                    <div class="task-actions">
+                        <button class="btn btn-primary">Actualizar</button>
+                        <button class="btn btn-danger">Eliminar</button>
+                        <button class="btn btn-success">Enviar por correo</button>
+                    </div>
+                </li>
+                <!-- Más tareas irían aquí -->
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
