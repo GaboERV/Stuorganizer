@@ -3,7 +3,7 @@
 <h2>Base de datos</h2>
 <p>CREATE DATABASE StuOrganizer;
 
-USE StuOrganizer;
+USE stuorganizer;
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,

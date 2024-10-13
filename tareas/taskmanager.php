@@ -9,7 +9,7 @@ class TaskManager {
         // Configuración de la base de datos
         $db_server = 'localhost';
         $db_username = 'root';
-        $db_password = '58875887';
+        $db_password = '';
         $db_name = 'stuorganizer';
 
         // Conexión a la base de datos
